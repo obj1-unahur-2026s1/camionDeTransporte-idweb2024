@@ -1,9 +1,18 @@
 import camion.*
+import cosas.*
 
-describe "group of test for camion" {
+describe "test del camión, cargado con lo siguiente: bumblebee como robot, la arena a granel con 150 kilos, la batería antiaérea con los misiles puestos, y el embalaje de seguridad poniéndole como contenido el paquete de ladrillos con 80 ladrillos." {
 
-  test "first test" {
-    assert.that(true)
+  test "bumblebee como robot, arena a granel con 150 kilos, bateria con misiles y embalaje con 80 ladrillos" {
+    camion.cargarCamionCon(bumblebee)
+    arenaAGranel.peso(150)
+    camion.cargarCamionCon(arenaAGranel)
+    bateriaAntiaerea.activarMisiles()
+    camion.cargarCamionCon(bateriaAntiaerea)
+    paqueteDeLadrillos.agregarLadrillos(80)
+    embalajeDeSeguridad.agregarCoberturaA(paqueteDeLadrillos)
+    camion.cargarCamionCon(embalajeDeSeguridad)
+    assert.equals(1410, camion.pesoTotalDeLaCarga())
   }
 
 }
